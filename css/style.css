@@ -1,0 +1,13 @@
+body {
+    padding-top: 70px; /*for fixed-top in navbar */
+}
+
+footer {
+    margin: 50px 0;
+}
+.nav-list,.nav-item{
+    margin-left: 5%;
+}
+.card-marg{
+    margin: 5%;
+}
