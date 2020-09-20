@@ -50,6 +50,21 @@ class User
       $object_properties = get_object_vars($this);
       return array_key_exists($key,$object_properties);
     }
+
+    public static function verifyUser($username,$password)
+    {
+        global $database;
+        $username = $database->escapeString($username);
+        $password = $database->escapeString($password);
+        $sql = "SELECT * FROM users WHERE ";
+        $sql .= "username = '{$username}' ";
+        $sql .= "AND password = '{$password}' ";
+        $sql .= "LIMIT 1";
+        $resultArray = self::excuteQuery($sql);
+        return !empty($resultArray) ? array_shift($resultArray) :false;
+
+
+    }
     
 
 

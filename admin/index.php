@@ -1,4 +1,5 @@
 <?php include("includes/header.php"); ?>
+<?php if (!$session->is_SignedIn()) {redirect("login.php");} ?>
 
 <div id="layoutSidenav">
 
@@ -25,5 +26,3 @@
 
     </div>
 </div>
-
-<?php include("includes/end.php"); ?>

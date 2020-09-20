@@ -17,6 +17,11 @@ function dnd($param)
     die();
 }
 
+function redirect($location)
+{
+    header("Location: {$location}");
+}
+
 
 
 

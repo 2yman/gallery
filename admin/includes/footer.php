@@ -10,3 +10,4 @@
         </div>
     </div>
 </footer>
+<?php include("includes/end.php"); ?>
