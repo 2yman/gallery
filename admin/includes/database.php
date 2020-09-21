@@ -3,7 +3,7 @@
 class Database
 {
  
-private $connection;
+    private $connection;
 
     public function __construct() {
 
@@ -45,6 +45,10 @@ private $connection;
         return $this->connection->insert_id;
     }
     
+    public function getConnection()
+    {
+        return $this->connection;
+    }
 
 }
 

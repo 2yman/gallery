@@ -13,13 +13,20 @@
             </div>
             <?php
 
-            $foundUser = User::findUserById(1);
-            echo $foundUser->username;
-            // $result = User::findUserById(1);
-            //   $user = User::instantation($result);
+                // $user = new User();
+                // $user->username = "user1";
+                // $user->password = "pass1";
+                // $user->first_name = "user1";
+                // $user->last_name = "user1";
+                // $user->create();
+                // echo $user->id;
+                $user = User::findUserById(6);
+                $user->first_name = "submit";
+                $user->last_name = "sadfghj";
+                $user->save();
+                
 
-            // echo $user->id;
-            
+
             ?>
         </main>
         <?php include("includes/footer.php"); ?>
