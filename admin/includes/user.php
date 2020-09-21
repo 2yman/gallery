@@ -26,14 +26,14 @@ class User
         return $the_object_array;
     }
 
-    public static function findAllUsers()
+    public static function findAll()
     {
-       return self::excuteQuery("SELECT * FROM users");
+       return self::excuteQuery("SELECT * FROM " . self::$db_table . " ");
     }
 
-    public static function findUserById($id)
+    public static function findById($id)
     {
-        $resultArray = self::excuteQuery("SELECT * FROM users WHERE id=$id");
+        $resultArray = self::excuteQuery("SELECT * FROM " . self::$db_table . " WHERE id=$id");
         return !empty($resultArray) ? array_shift($resultArray) :false;
     }
 
@@ -81,7 +81,7 @@ class User
         global $database;
         $username = $database->escapeString($username);
         $password = $database->escapeString($password);
-        $sql = "SELECT * FROM users WHERE ";
+        $sql = "SELECT * FROM " . self::$db_table . " WHERE ";
         $sql .= "username = '{$username}' ";
         $sql .= "AND password = '{$password}' ";
         $sql .= "LIMIT 1";

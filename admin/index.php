@@ -20,7 +20,7 @@
                 // $user->last_name = "user1";
                 // $user->create();
                 // echo $user->id;
-                $user = User::findUserById(6);
+                $user = User::findById(6);
                 $user->first_name = "submit";
                 $user->last_name = "sadfghj";
                 $user->save();
