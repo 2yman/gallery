@@ -1,9 +1,11 @@
 <?php include("includes/header.php"); ?>
 
-<?php if (!$session->is_SignedIn()) {redirect("login.php");} ?>
+<?php if (!$session->is_SignedIn()) {
+    redirect("login.php");
+} ?>
 
-<?php 
-$message="";
+<?php
+$message = "";
 
 if (isset($_POST['submit'])) {
     $photo = new Photo();
@@ -12,7 +14,7 @@ if (isset($_POST['submit'])) {
     if ($photo->save()) {
         $message = "<p class='text-success'>photo uploaded succesfully</p>";
     } else {
-        $message = "<p class='text-danger'>" . join("<br>",$photo->errors) ."</p>" ;
+        $message = "<p class='text-danger'>" . join("<br>", $photo->errors) . "</p>";
     }
 }
 
@@ -33,13 +35,12 @@ if (isset($_POST['submit'])) {
                         <div class="row">
                             <div class="col-lg-5 mx-auto">
                                 <div class="p-5 bg-white shadow rounded-lg">
-                                <?php echo $message; ?>
+                                    <?php echo $message; ?>
                                     <form action="upload.php" method="post" enctype="multipart/form-data">
                                         <p>Upload file:</p>
                                         <input type="text" name="title" class="form-control" placeholder="title"><br>
                                         <div class="custom-file mb-3">
-                                            <input type="file" class="custom-file-input" id="customFile"
-                                                name="file_upload">
+                                            <input type="file" class="custom-file-input" id="customFile" name="file_upload">
                                             <label class="custom-file-label" for="customFile">Choose file</label>
                                         </div>
                                         <div class="mt-3">
@@ -54,7 +55,7 @@ if (isset($_POST['submit'])) {
             </div>
         </main>
         <?php include("includes/footer.php"); ?>
-        
+
 
     </div>
 </div>

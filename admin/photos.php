@@ -32,7 +32,16 @@ $photos = Photo::findAll();
                              <?php foreach ($photos as $photo ) :?>
                             <tr>
 
-                                <td><img src="<?php echo $photo->picPath(); ?>" alt="<?php echo $photo->title ?>" width="124" height="62"></td>
+                                <td><img src="<?php echo $photo->picPath(); ?>" alt="<?php echo $photo->title ?>" class="photo-table">
+                                <div class="pic-link">
+
+                                    <a class="btn btn-danger" href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
+                                    <a class="btn btn-warning" href="#">Edit</a>
+                                    <a class="btn btn-primary" href="#">View</a>
+
+                                </div>
+                                
+                                </td>
                                 <td><?php echo $photo->id ?></td>
                                 <td><?php echo $photo->filename ?></td>
                                 <td><?php echo $photo->title ?></td>

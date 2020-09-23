@@ -2,7 +2,8 @@
 
 class Db_model  
 {
-    
+
+
     public static function findAll()
     {
        return static::findByQuery("SELECT * FROM " . static::$db_table . " ");
@@ -25,17 +26,7 @@ class Db_model
         return $the_object_array;
     }
 
-    public function instantation($founduser)
-    {
-        $callingClass = get_called_class();
-        $u = new $callingClass;
-        foreach ($founduser as $key => $value) {
-            if($u->hasAttribute($key)){
-                $u->$key = $value;
-            }
-        }
-        return $u;
-    }
+
 
     private function hasAttribute($key)
     {
@@ -53,6 +44,18 @@ class Db_model
             
         }
         return $properties;
+    }
+
+    public static function instantation($founduser)
+    {
+        $callingClass = get_called_class();
+        $u = new $callingClass;
+        foreach ($founduser as $key => $value) {
+            if($u->hasAttribute($key)){
+                $u->$key = $value;
+            }
+        }
+        return $u;
     }
 
     protected function cleanProperties()

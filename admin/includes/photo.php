@@ -84,10 +84,22 @@ class Photo extends Db_model
         
     }
 
+    public function deletePhoto()
+    {
+        if($this->delete()){
+            $target_path = SITE_ROOT . DS . 'admin' . DS . $this->picPath();
+            return unlink($target_path)?True:false;
+        }else {
+            return false;
+        }
+    }
+
     public function picPath()
     {
         return $this->upload_dir . DS . $this->filename;
     }
+
+
 
 
 
